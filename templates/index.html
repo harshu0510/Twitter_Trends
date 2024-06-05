@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter Trends</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="run-script">Click here to run the script</button>
+    <div id="results"></div>
+    
+    <script>
+        $(document).ready(function() {
+            $('#run-script').click(function() {
+                $.post('/run_script', function(data) {
+                    let resultHtml = `<p>These are the most happening topics as on ${data.end_time}</p>`;
+                    resultHtml += `<ul>`;
+                    for (let i = 1; i <= 5; i++) {
+                        resultHtml += `<li>${data['trend' + i]}</li>`;
+                    }
+                    resultHtml += `</ul>`;
+                    resultHtml += `<p>The IP address used for this query was ${data.ip_address}.</p>`;
+                    resultHtml += `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                    $('#results').html(resultHtml);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

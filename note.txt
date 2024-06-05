@@ -1,0 +1,31 @@
+Twitter Trend Scraper
+
+Author
+
+Harsh Tiwari
+
+Description:
+
+This project is a web scraping application that fetches the top 5 trending topics from Twitter's homepage using Selenium. It utilizes ProxyMesh to rotate IP addresses for each request and stores the results in a MongoDB database. The scraped data can be viewed on a simple HTML page by clicking a button that triggers the scraping script.
+
+File Structure:
+
+app.py: Flask application to serve the HTML page and handle the button click to run the Selenium script.
+main.py: Contains the main script to perform web scraping using Selenium, store data in MongoDB, and handle ProxyMesh.
+templates/index.html: HTML template for the main page.
+requirements.txt: List of Python dependencies required for the project.
+
+Instructions:
+
+Install MongoDB and ensure it is running.
+Install ChromeDriver and ensure it is in your system PATH.
+Create a virtual environment (optional but recommended).
+Install Python dependencies using pip install -r requirements.txt.
+Run the Flask app using python app.py.
+Access the app in your web browser and click the button to fetch Twitter trends.
+View the scraped data on the HTML page.
+
+Note:
+
+Replace USERNAME, PASSWORD, and PROXYMESH_IP:PORT in main.py with your ProxyMesh credentials.
+Replace YOUR_TWITTER_USERNAME and YOUR_TWITTER_PASSWORD in main.py with your Twitter credentials.
